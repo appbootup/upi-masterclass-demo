@@ -1,0 +1,80 @@
+<HTML>
+  <HEAD>
+    <TITLE>UPI Web Collect</TITLE>
+    <script type="text/javascript" src="./js/upi.js"></script>
+    <script type="text/javascript" src="./js/helper.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+  </HEAD>
+  <BODY>
+    <div class="form-style">
+
+      <div class="header">
+        <img src="./images/merchant_logo.jpg" class="logoLeft">
+        <img src="./images/upi_logo.png" class="logoRight">
+      </div>
+
+      <div id="inputItems">
+        <p class="inputHeading">Enter Details</p>
+        <div class="inputField">
+          <label>AMOUNT</label>
+          <input type="text" id="amount"/>
+          <span class="error" id="errorAmount">Invalid amount</span>
+        </div>
+        <div class="inputField">
+          <label>VPA</label>
+          <input type="text" id="vpa"/>
+          <span class="error" id="errorVpa">Invalid VPA</span>
+        </div>
+        <div class="inputField">
+          <label>REMARK</label>
+          <input type="text" id="remarks"/>
+          <span class="error" id="errorRemarks">Invalid remarks</span>
+       </div>
+          <input type="button" id="submit" value="Make request" onclick="sendCollect()"/>
+      </div>
+
+      <div id="polling" class="progress-wrapper">
+        <p class="pollHeading">Request Details</p>
+        <div class="detailRow">
+          <label class="field">REQUESTED BY</label>
+          <label class="colon">:</label>
+          <label class="value" id="payeeVpa">test@apl</label>
+        </div>
+        <div class="detailRow">
+          <label class="field">SENT TO</label>
+          <label class="colon">:</label>
+          <label class="value" id="payerVpa"></label>
+        </div>
+        <div class="detailRow">
+          <label class="field">AMOUNT</label>
+          <label class="colon">:</label>
+          <label class="value" id="amountResult"></label>
+        </div>
+        <div class="detailRow">
+          <label class="field">DATE</label>
+          <label class="colon">:</label>
+          <label class="value" id="date"></label>
+        </div>
+        <p>Approve the request sent on your UPI app to <br />complete your transaction</p>
+        <img src="./images/loader.gif"/>
+        <p>Checking payment status...</p>
+        <p class="progress-text" id="counter"></p>
+        <p style="margin-top:-30px;">till expiry</p>
+      </div>
+
+      <div id="transactionStatus" class="transaction-status">
+        <p id="transactionMessage" class="message"></p>
+        <p id="tid" class="tid"></p>
+        <img id="statusImage" />
+      </div>
+
+      <div class="footer">
+        <span>Powered by</span>
+        <img src="./images/juspay_logo.png" />
+      </div>
+    </div>
+
+    <div class="loading" id="loader"></div>
+  </BODY>
+</HTML>
